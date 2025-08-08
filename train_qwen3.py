@@ -38,9 +38,9 @@ def dataset_jsonl_transfer(origin_path, new_path):
             data = json.loads(line)
             input = data["question"]
             think = data["think"]
-            ancher = data["ancher"]
+            answer = data["answer"]
 
-            output = f"<think>{think}</think> \n {ancher}"
+            output = f"<think>{think}</think> \n {answer}"
             message = {
                 "instruction": PROMPT,
                 "input": f"{input}",
