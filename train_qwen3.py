@@ -1,10 +1,13 @@
+import os
+os.environ["NCCL_P2P_DISABLE"] = "1"
+os.environ["NCCL_IB_DISABLE"] = "1"
+
 import json
 import pandas as pd
 import torch
 from datasets import Dataset
 from modelscope import snapshot_download, AutoTokenizer
 from transformers import AutoModelForCausalLM, TrainingArguments, Trainer, DataCollatorForSeq2Seq
-import os
 import swanlab
 
 model_name = 'Qwen/Qwen3-0.6B'
