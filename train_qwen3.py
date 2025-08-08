@@ -44,7 +44,6 @@ def dataset_jsonl_transfer(origin_path, new_path):
                 "output": output,
             }
             messages.append(message)
-
     # 保存重构后的JSONL文件
     with open(new_path, "w", encoding="utf-8") as file:
         for message in messages:
