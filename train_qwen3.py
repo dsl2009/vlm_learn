@@ -145,7 +145,7 @@ args = TrainingArguments(
     save_on_each_node=True,
     gradient_checkpointing=True,
     report_to="swanlab",
-    run_name="qwen3-1.7B",
+    run_name="qwen3-0.6B",
 )
 
 trainer = Trainer(
