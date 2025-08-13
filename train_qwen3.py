@@ -108,7 +108,7 @@ model_dir = snapshot_download(model_name, cache_dir=cache_dir, revision="master"
 tokenizer = AutoTokenizer.from_pretrained(model_cache_dir, use_fast=False, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(model_cache_dir, device_map="auto", torch_dtype=torch.bfloat16)
 model.enable_input_require_grads()  # 开启梯度检查点时，要执行该方法
-
+print(model)
 # 加载、处理数据集和测试集
 train_dataset_path = "assets/train.jsonl"
 test_dataset_path = "assets/val.jsonl"
