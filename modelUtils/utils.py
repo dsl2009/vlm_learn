@@ -27,9 +27,9 @@ def download_model():
 def load_processor():
 
     smolvlm2_processor = AutoProcessor.from_pretrained(
-        "../cache/HuggingFaceTB/SmolVLM2-256M-Video-Instruct"
+        "./cache/HuggingFaceTB/SmolVLM2-256M-Video-Instruct"
     )
-    qwen3_tokenizer = AutoTokenizer.from_pretrained("../cache/Qwen/Qwen3-0.6B")
+    qwen3_tokenizer = AutoTokenizer.from_pretrained("./cache/Qwen/Qwen3-0.6B")
     smolvlm2_processor.tokenizer = qwen3_tokenizer
     with open("chat_template.jinja", "r") as f:
         smolvlm2_processor.chat_template = f.read()
@@ -45,12 +45,12 @@ def load_processor():
 
 def load_model(device="cuda:0"):
     smolvlm2_02B_model = AutoModelForImageTextToText.from_pretrained(
-         "../cache/HuggingFaceTB/SmolVLM2-256M-Video-Instruct",
+         "./cache/HuggingFaceTB/SmolVLM2-256M-Video-Instruct",
         torch_dtype=torch.bfloat16,
         _attn_implementation="eager",
     ).to(device)
     qwen3_06b_model = AutoModelForCausalLM.from_pretrained(
-        "../cache/Qwen/Qwen3-0.6B", torch_dtype=torch.bfloat16
+        "./cache/Qwen/Qwen3-0.6B", torch_dtype=torch.bfloat16
     ).to(device)
 
     # 构建配置并且创建连接器
@@ -97,4 +97,4 @@ def load_model(device="cuda:0"):
 
 
 if __name__ == '__main__':
-    download_model()
+    load_model()
