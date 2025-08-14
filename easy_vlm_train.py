@@ -1,4 +1,6 @@
 import os
+os.environ["NCCL_P2P_DISABLE"] = "1"
+os.environ["NCCL_IB_DISABLE"] = "1"
 import sys
 from dataclasses import dataclass
 from functools import partial
