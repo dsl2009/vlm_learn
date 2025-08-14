@@ -14,7 +14,7 @@ from transformers.trainer_utils import get_last_checkpoint
 import datasets
 import swanlab
 
-from model_utils.utils import load_model, load_processor
+from modelUtils.utils import load_model, load_processor
 
 device = "cuda"
 
